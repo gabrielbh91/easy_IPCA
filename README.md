@@ -1,5 +1,5 @@
 # Easy IPCA
-    Portal para consulta simplificada do valor mensal do "Índice Nacional de Preços ao Consumidor Amplo", em um determinado período de tempo.
+Portal para consulta simplificada do valor mensal do "Índice Nacional de Preços ao Consumidor Amplo", em um determinado período de tempo.
 
 ## Requisitos do projeto
 
@@ -19,6 +19,8 @@
     - Disponibilar tabela para download no formatos JSON e XLSX.
 
 ## PIPELINE
+
+![screenshot](./documentation/Pipeline_Easy_IPCA.png)
 
 ## API IPCA BCB
 
