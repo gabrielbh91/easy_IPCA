@@ -5,7 +5,6 @@ import {BsSearch} from "react-icons/bs"
 import "./Navbar.css"
 
 
-
 const Navbar = () => {
   const [startDate, setSearchStartDate] = useState("")
   const [endDate, setSearchEndDate] = useState("")

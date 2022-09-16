@@ -54,14 +54,7 @@ async def get_ipca_accumulated(
   df_ipca = database_methods.get_interval_value_ipca(start_date, end_date)
   
   if format == 'json':
-
-    # Formatando campo data
-    df_ipca['data'] = df_ipca.data.apply(lambda data : data[:7])
-
-
-    total = df_ipca.valor.sum()
-    row = pd.Series({'data':'Total Acumulado','valor':total})
-    df_ipca.loc[df_ipca.shape[0]] = row
+    
     ipca_data_json =  df_ipca.to_json(orient="records")
     ipca_data_json = json.dumps(json.loads(ipca_data_json))
     output = ipca_data_json
@@ -69,11 +62,24 @@ async def get_ipca_accumulated(
 
   elif format == 'xlsx':
   
-    output = 'futuramente será um arquivo xlsx'
+    file = './cache/data.xlsx'
+    df_ipca.to_excel(file,index=False)
+    with open(file,"rb") as file_b:
+      file_base64 = base64.b64encode(file_b.read())
+    remove(file)
+
+    output = file_base64
   
 
   return output
 
+@app.get("/ipca_bcb/total")
+async def get_ipca_total_accumulated():
+  total = database_methods.get_total_ipca_bacen()
+
+  ipca_total_json = '{"Total" : %s}' % total
+
+  return ipca_total_json
 
 @app.put("/ipca_bcb")
 async def update_ipca_bsb():

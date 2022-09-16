@@ -25,6 +25,14 @@ def get_interval_value_ipca(start_date, end_date):
     engine = create_engine('sqlite:///%s' % DB_PATH, echo=False)
     df_ipca = pd.read_sql_query(query,con=engine)
 
+    # Formatando campo data
+    df_ipca['data'] = df_ipca.data.apply(lambda data : data[:7])
+
+    # Inserir total acumulado
+    total = df_ipca.valor.sum()
+    row = pd.Series({'data':'Total Acumulado','valor':total})
+    df_ipca.loc[df_ipca.shape[0]] = row
+
     return df_ipca 
 
 
@@ -39,6 +47,16 @@ def get_ipca_bacen():
     df_ipca_bc['data'] = df_ipca_bc.data.apply(lambda data : datetime.strptime(data,'%d/%m/%Y').strftime('%Y-%m-%d'))
     return  df_ipca_bc
     
+def get_total_ipca_bacen():
+    query = f"""
+    select SUM(valor) AS TOTAL_ACUMULADO from  {TABLE_NAME};
+    """
+
+    engine = create_engine('sqlite:///%s' % DB_PATH, echo=False)
+    df_ipca = pd.read_sql_query(query,con=engine)
+
+    return round(df_ipca.iloc[0,0],2)
+
 def updata_database(df_ipca_bc):
     engine = create_engine('sqlite:///%s' % DB_PATH, echo=False)
     df_ipca_bc.to_sql(TABLE_NAME, con=engine, if_exists='replace',index=False)
