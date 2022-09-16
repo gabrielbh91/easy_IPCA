@@ -1,0 +1,10 @@
+#report_table {
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+#report_table table{
+    align-self: center;
+    padding: 1rem 2rem;
+    width: 50%;
+}

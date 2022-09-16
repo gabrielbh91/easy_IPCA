@@ -1,0 +1,68 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #bdccdf;
+}
+
+#navbar h1 a{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#navbar form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#navbar input {
+    padding: .2rem .8rem;
+    border-radius: 4px;
+
+}
+
+#navbar label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+
+}
+
+#navbar form button {
+    background-color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+    color: #696969;
+    padding: 0.3rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .4s;
+  }
+
+  #navbar form button:hover {
+    background-color: transparent;
+    color: #696969;
+  }
+
+  #navbar button {
+    background-color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+    color: #696969;
+    padding: 0.3rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .4s;
+  }
+
+  #navbar button:hover {
+    background-color: transparent;
+    color: #696969;
+  }

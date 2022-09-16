@@ -14,19 +14,18 @@ import requests
 DB_PATH = join(realpath(dirname(__file__)),'easy_ipca.db')
 TABLE_NAME = 'IPCA_BACEN'
 
-def get_accumulated_value_IPCA(start_date, end_date):
+def get_interval_value_ipca(start_date, end_date):
     start_date = start_date.strftime('%Y-%m-%d')
     end_date = end_date.strftime('%Y-%m-%d')
 
     query = f"""
-    SELECT SUM(VALOR) AS IPCA_ACUMULADO FROM {TABLE_NAME} WHERE DATE(data) BETWEEN DATE('{start_date}') AND DATE('{end_date}');
+    SELECT DATA, VALOR FROM {TABLE_NAME} WHERE DATE(data) BETWEEN DATE('{start_date}') AND DATE('{end_date}');
     """
 
     engine = create_engine('sqlite:///%s' % DB_PATH, echo=False)
-    df = pd.read_sql_query(query,con=engine)
-    accumulated_value =  df.iloc[0,0]
+    df_ipca = pd.read_sql_query(query,con=engine)
 
-    return accumulated_value
+    return df_ipca 
 
 
 def get_ipca_bacen():
