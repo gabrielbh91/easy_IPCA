@@ -15,8 +15,11 @@ const Navbar = () => {
     e.preventDefault()
 
     let urlReport = '/report?'
-    if(startDate) urlReport = urlReport + `startdate=${startDate}&`
-    if(endDate) urlReport = urlReport + `enddate=${endDate}&`
+    let urlParams = []
+    if(startDate) urlParams.push(`startdate=${startDate}`)
+    if(endDate)urlParams.push(`enddate=${endDate}`)
+
+    urlReport += urlParams.join('&')
     
     navigate(urlReport)
 
