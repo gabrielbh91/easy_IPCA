@@ -68,7 +68,7 @@ async def get_ipca_accumulated(
       file_base64 = base64.b64encode(file_b.read())
     remove(file)
 
-    output = file_base64
+    output = '{ "fileXlsxBase64" : "%s" }' % file_base64.decode('ascii')
   
 
   return output

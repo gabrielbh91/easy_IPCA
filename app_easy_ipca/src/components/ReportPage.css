@@ -1,4 +1,38 @@
 #report_table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+#files_download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+
+#files_download button {
+    background-color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+    color: #696969;
+    border: 2px solid #696969;
+    padding: 0.3rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .4s;
+  }
+
+#files_download button:hover {
+    background-color: transparent;
+    color: #696969;
+  }
+
+#report_table {
     align-items: center;
     padding: 1rem 2rem;
 }

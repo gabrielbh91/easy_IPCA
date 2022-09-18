@@ -16,7 +16,3 @@ a {
     color: #4682B4;
     transition: .5s;
 }
-
-a:hover {
-    color: #ADD8E6;
-}

@@ -28,10 +28,8 @@ def get_interval_value_ipca(start_date, end_date):
     # Formatando campo data
     df_ipca['data'] = df_ipca.data.apply(lambda data : data[:7])
 
-    # Inserir total acumulado
-    total = df_ipca.valor.sum()
-    row = pd.Series({'data':'Total Acumulado','valor':total})
-    df_ipca.loc[df_ipca.shape[0]] = row
+    # Inserindo index
+    df_ipca['index'] = df_ipca.index.values + 1
 
     return df_ipca 
 
