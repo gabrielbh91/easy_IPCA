@@ -37,15 +37,15 @@ app.add_middleware(
 
 @app.get("/ipca_bcb")
 async def get_ipca_accumulated(
-  data_inicial: str = Query(description='Informar data no pradão dd/mm/aaaa.'),
-  data_final: str = Query(description='Informar data no pradão dd/mm/aaaa.'),
-  format : str = Query('json',description='Os formatos disponíveis são: json, xlsx e lineplot')
+  data_inicial: str = Query(description='Informar data no pradão aaaa-mm-dd.'),
+  data_final: str = Query(description='Informar data no pradão aaaa-mm-dd.'),
+  format : str = Query('json',description='Os formatos disponíveis são: json, xlsx')
   ):
   
-  try: start_date = datetime.strptime(data_inicial,'%d/%m/%Y').date()
+  try: start_date = datetime.strptime(data_inicial,'%Y-%m-%d').date()
   except ValueError: raise HTTPException(status_code=404, detail="data_inicial inválida!")
   
-  try: end_date = datetime.strptime(data_final,'%d/%m/%Y').date()
+  try: end_date = datetime.strptime(data_final,'%Y-%m-%d').date()
   except ValueError: raise HTTPException(status_code=404, detail="data_final inválida!")
 
   if not relativedelta(start_date,end_date).years == 0: # Intervalo de no máximo 1 ano.
