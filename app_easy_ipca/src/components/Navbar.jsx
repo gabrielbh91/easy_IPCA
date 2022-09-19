@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom"
 import {BsSearch} from "react-icons/bs"
 
 import "./Navbar.css"
-
+const apiEndpoint = import.meta.env.VITE_API_ENDPOINT
 
 const Navbar = () => {
   const [startDate, setSearchStartDate] = useState("")
   const [endDate, setSearchEndDate] = useState("")
-
   const navigate = useNavigate()
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,7 +37,6 @@ const Navbar = () => {
             <input id="dataFinal" type="date" onChange={(e) => setSearchEndDate(e.target.value)} value={endDate}/>
             <button type="submit"><BsSearch /></button>
         </form>
-        <button type="submit">Atualizar Base</button>
       </nav>
     )
 }

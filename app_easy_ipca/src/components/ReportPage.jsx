@@ -4,7 +4,6 @@ import "./ReportPage.css"
 const apiEndpoint = import.meta.env.VITE_API_ENDPOINT
 
 
-
 const ReportPage = ({startDate,endDate}) => {
 
     
@@ -33,14 +32,12 @@ const ReportPage = ({startDate,endDate}) => {
         getJsonFile(encodeURIComponent(JSON.stringify(data_json)))
       };
 
-    //console.log(setPostURL)
-    //console.log(xlsxFile0)
+
     useEffect(() => {
         const GetURL = `${apiEndpoint}?data_inicial=${startDate}&data_final=${endDate}`
         getReport(GetURL)
 
-    
-    //  getSearchedMovies(searchWithQueryURL)
+
     }, [startDate,endDate])
 
 
@@ -62,12 +59,11 @@ const ReportPage = ({startDate,endDate}) => {
 
             </table>
         </div>
-        <div id="files_download">
-            <div>
-            <a href={mediaTypeXlsx + xlsxFile} download="data.xlsx"><button>Excel</button></a>
-            <a href={mediaTypeJson + jsonFile} download="data.json"><button>Json</button></a>
-            </div>
-        </div>
+        <h4>Exportar relatótio:</h4>
+        <form id="files_download">
+            <a href={mediaTypeXlsx + xlsxFile} download={`relatorio_ipca_bcb_${startDate}_${endDate}.xlsx`}>Excel</a>
+            <a href={mediaTypeJson + jsonFile} download={`relatorio_ipca_bcb_${startDate}_${endDate}.json`}>Json</a>
+        </form>
     </div>
     )
 }

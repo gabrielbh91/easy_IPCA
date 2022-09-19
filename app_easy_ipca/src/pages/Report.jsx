@@ -44,7 +44,7 @@ const Report = () => {
 
     return(
         <div className="report-ipca">
-            <h4 className="title">{titleReport}</h4>
+            <h4 className="title" ><font color={reportValidation ? "":"#B22222"}>{titleReport}</font></h4>
             <div id = "output_report">
                 {showReport}
             </div>

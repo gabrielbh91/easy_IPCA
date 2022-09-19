@@ -1,28 +1,23 @@
 #report_table {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem 2rem;
 }
 
 #files_download {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem 2rem;
 }
 
 
 #files_download button {
     background-color: #FFFFFF;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #4F4F4F;
     border-radius: 4px;
     color: #696969;
-    border: 2px solid #696969;
-    padding: 0.3rem;
+    padding: 0.5rem;
     font-size: 1.3rem;
-    display: flex;
-    align-items: center;
+    align-items: right;
+    margin-right: 20px;
     cursor: pointer;
     transition: .4s;
   }
@@ -40,5 +35,6 @@
 #report_table table{
     align-self: center;
     padding: 1rem 2rem;
-    width: 50%;
+    background: #FFFFFF;
+    width: 30%;
 }
