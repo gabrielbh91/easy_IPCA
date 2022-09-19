@@ -4,19 +4,21 @@ Portal para consulta simplificada do valor mensal do "Índice Nacional de Preço
 ## Requisitos do projeto
 
 - Concluídos:
+    - Backend:
 
-    - Buscar dados da API de IPCA do Banco Central do Brasil.
-    - Salvar valores retornados em um banco de dados.
-    - Recuperar os valores somados em JSON.
-    - Disponibilizar um endpoint que recebe como parâmetros data inicial e final e formato (JSON e Excel) e retorne relatório referente ao intervalo selecionado.
-    - Exibir os dados solicitados no período solicitado pelo usuário.
-    - Permitir que o usuário escolha e altere os valores da pesquisa.
-    - Não realizar pesquisa caso o intervalo seja maior que 1 ano
+        - Buscar dados da API de IPCA do Banco Central do Brasil.
+        - Salvar valores retornados em um banco de dados.
+        - Criar endpoint para recuperar os valores somados em JSON.
+        - Criar endpoint que recebe como parâmetros data inicial e final e formato (JSON e Excel) e retorne relatório referente ao intervalo selecionado.
+        - Criar endpoint para atualizar o banco de dados.
 
+    -Frontend:
 
-- Pendentes:
+        - Exibir os dados solicitados no período solicitado pelo usuário.
+        - Permitir que o usuário escolha e altere os valores da pesquisa.
+        - Não realizar pesquisa caso o intervalo seja maior que 1 ano
+        - Disponibilar tabela para download no formatos JSON e XLSX.
 
-    - Disponibilar tabela para download no formatos JSON e XLSX.
 
 ## PIPELINE
 
