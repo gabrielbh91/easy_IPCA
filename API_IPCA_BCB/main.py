@@ -9,7 +9,7 @@ from pydantic import BaseModel
 import base64
 import database_methods
 import json
-import matplotlib.pyplot as plt
+
 from os import remove
 import pandas as pd
 

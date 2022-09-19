@@ -1,7 +1,6 @@
 from ast import literal_eval
 
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
 from sqlalchemy import create_engine
 from os.path import dirname,realpath,join
